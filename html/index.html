@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>New Assistant Recruitment 21-1</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery/jquery-3.3.1.min.js"></script>
+</head>
+<body scroll="no">
+    <div class="wrapper-container-logo">
+        <div class="wrapper-alt-img">
+            <a onclick="main()">
+                <div class="wrap">
+                    <img class="img-logo" src="../Assets/images/logo/logo.png" id="bambang" alt="" > 
+                </div>
+                <!-- <div style="justify-content: center;display: flex;cursor: pointer;font-size: 1vw;">
+                    <h1 style="--n:1">Click&nbsp;</h1> <h1 style="--n:2">Here&nbsp;</h1>
+                    <h1 style="--n:3">To&nbsp;</h1><h1 style="--n:4">Start!</h1>
+                </div> -->
+            </a>
+        </div>
+    </div>
+    
+    <div class="progress-load" style="display: none;">
+        <div class="progress-text">
+            <p class="a" id="text" > A </p>
+        </div>
+        <div class="progress-bar">
+            <div class="bar" id="barbar">
+            </div>
+        </div>
+        <p style="color: aliceblue;">Click W to fly !</p>
+        <p style="color: aliceblue;">20 coin, 0 mati</p>
+    </div>
+    
+    <canvas class="surface" id="surface" style="width: 100vw;height: 100%;" ></canvas>
+    
+    
+    <div class="outerdiv">
+        <img src="../assets/endscr.png" class="border" alt="">
+        <div class="innerdiv">
+            <!-- <div class="title"> -->
+                <div class="contentBox">
+                    <ul>
+                        <li>
+                            <div class="titleCell" id = "benefit">
+                                <strong >BENEFITS</strong>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="titleCell" id = "req">
+                                <strong  >REQ.</strong>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="titleCell" id = "test">
+                                <strong >TEST</strong>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="titleCell" id = "reg">
+                                <strong >REG.</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="titleCell" id = "contact">
+                                <strong >CONTACT</strong>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            <div id="benefitDetail">
+                <p class="hardSkill">Hard Skills</p>
+                <div class="row">
+                    <div class="column">
+                        <img src="../Assets/cpp.png" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/java.png" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/js.png" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/python.png" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/android.png" alt="">
+                    </div>
+                </div>
+                <hr>
+                <p class="softSkill">Soft Skills</p>
+                <hr>
+                <div class="skImages">
+                    <div class="column">
+                        <img src="../Assets/publicspeaking.png" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/social.png" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/teamwork.png" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/timemgmt.png" alt="">
+                    </div>
+                </div>
+                <p class="jobXp">Job Experience</p>
+            </div>
+            <div id="reqDetail">
+                <div class="row">
+                    <div class= "column">
+                        <img src="../Assets/binusan.png" alt="">
+                        <p>Must be a Binusian</p>
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/contract.png" alt="">
+                        <p>Willing to sign</p>
+                        <p>a 2 years contract</p>
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/grade.png" alt="">
+                            <p class="minimumGrade">Minimum grade B</p>
+                            <p>in Algorithm and Programming</p>
+                            <p>or Intro to Programming </p>
+                            <p>(Except for first semester)</p>
+                    </div>
+                    <div class="column">
+                        <img src="../Assets/programming.png" alt="">
+                        <p>Binusian of the following program or faculty</p>
+                        <p>Socs, SIS, FoE, DP, MTP</p>
+                    </div>
+                </div>
+            </div>
+            <div id="testDetail">
+                <div class="date">
+                    <span>Sunday,</span>
+                    <span class="dateMonth">8 March</span>
+                    <span>2020</span>
+                </div>
+                <p class="time">07:30 - 12:00</p>
+                <div class="outfit">
+                    <div class="dress">Dress Politely</div>
+                    <div class="politely"></div>
+                    <div class="bring">and</div>
+                    <div class="binusianCard">bring Binusian Card</div>
+                </div>
+            </div>
+            <div id="regDetail">
+                <p class="openRegis">Open Registration</p>
+                <p class="regisDate">Monday, 23 October 2020</p>
+                <p>until</p>
+                <p class="regisDate">Saturday, 5 November 2020</p>
+                <p>At</p>
+                <p>bluejack.binus.ac.id/lab/</p>
+            </div>
+            <div id="contactDetail">
+                <div style="display: none;" id="contactDetail1">
+                    <p class="nfi">NEED FOR INFORMATION?</p>
+                    <p class="cu">CONTACT US on</p>
+                    <p class="kmg">- Kemanggisan -</p>
+                    <p class="recsel">Christina / Hanni / Natasia</p>
+                    <p class="phone">021-5345830 ext 1762 - Room 724</p>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</div>
+
+<br>
+</body>
+<script>
+    var viewportmeta = document.querySelector('meta[name="viewport"]');
+    viewportmeta.content = 'user-scalable=NO, width=device-width, initial-scale=1.0'
+</script>
+<script src="../jquery/jquery.js"></script>
+<script src="../js/backend.js"></script>
+<!-- <script>game()</script> -->
+</html>
