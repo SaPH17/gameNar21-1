@@ -15,6 +15,12 @@ body{
 }
 
 
+.how-to-play-text{
+    margin-top: 1vh;
+    text-align: center;
+    font-size: 1.5vw;
+    color: navy
+}
 
 
 @keyframes shake {
@@ -289,13 +295,13 @@ p{
     position: absolute;
     display: none;
     margin-top: 1vw;
-    margin-left: 5vw;
+    margin-left: 10vw;
 }
 
 #contactDetail .nfi{
     font-size: 3vw;
     color: aqua;
-    padding: 0.1vw 0vw 0.3vw 0.2vw;
+    padding: -3vw 0vw 0.3vw 0.2vw;
 }
 
 #contactDetail .cu{
@@ -336,6 +342,7 @@ p{
 }
 
 #benefitDetail .hardSkill{
+    margin-top: -1vw;
     font-size: 2vw;
     color: aqua;
     text-shadow: 0.2vw 0.2vw rgba(0, 255, 255, 0.473);
@@ -355,8 +362,190 @@ p{
     height: 6vw;
 }
 
+/* Bagian gambar jadi tulisan */
+/*Overlay hardskill */
+.cpp-overlay {
+    position: absolute;
+    top: 1vw;
+    bottom: 0;
+    left: 2.2vw;
+    right: 0;
+    height: 50%;
+    width: 50%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .cpp-overlay {
+    opacity: 1;
+}
+  
+.overlay-text {
+    color: white;
+    font-size: 1.7vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.java-overlay {
+    position: absolute;
+    top: 1vw;
+    bottom: 0;
+    left: 11vw;
+    right: 0;
+    height: 50%;
+    width: 50%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .java-overlay {
+    opacity: 1;
+}
+
+.js-overlay {
+    position: absolute;
+    top: 1vw;
+    bottom: 0;
+    left: 19.8vw;
+    right: 0;
+    height: 50%;
+    width: 50%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .js-overlay {
+    opacity: 1;
+}
+
+.phyton-overlay {
+    position: absolute;
+    top: 1vw;
+    bottom: 0;
+    left: 29.2vw;
+    right: 0;
+    height: 50%;
+    width: 50%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .phyton-overlay {
+    opacity: 1;
+}
+
+.android-overlay {
+    position: absolute;
+    top: 1vw;
+    bottom: 0;
+    left: 37.2vw;
+    right: 0;
+    height: 50%;
+    width: 60%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .android-overlay {
+    opacity: 1;
+}
+
+/*Soft Skill Overlay */
+  
+.publicSpeaking-overlay {
+    position: absolute;
+    top: 12.4vw;
+    bottom: 0;
+    left: 16.2vw;
+    right: 0;
+    height: 12%;
+    width: 13%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .publicSpeaking-overlay {
+    opacity: 1;
+}
+
+.social-overlay {
+    position: absolute;
+    top: 12.4vw;
+    bottom: 0;
+    left: 23.7vw;
+    right: 0;
+    height: 12%;
+    width: 17%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .social-overlay {
+    opacity: 1;
+}
+
+.teamwork-overlay {
+    position: absolute;
+    top: 12.4vw;
+    bottom: 0;
+    left: 31.4vw;
+    right: 0;
+    height: 12%;
+    width: 17%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .teamwork-overlay {
+    opacity: 1;
+}
+
+.timemgmt-overlay {
+    position: absolute;
+    top: 12.4vw;
+    bottom: 0;
+    left: 39.2vw;
+    right: 0;
+    height: 12%;
+    width: 18.8%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+    border-radius: 0.5vw;
+}
+
+.column:hover .timemgmt-overlay {
+    opacity: 1;
+}
+
+  /* Done untuk overlay */
+
+
 #benefitDetail .softSkill{
     font-size: 2vw;
+    margin-top: -1vw;
     text-align: right;
     margin-top: 7vw;
     margin-left: 30vw;
@@ -391,7 +580,7 @@ hr{
 #reqDetail {
     position: absolute;
     width: 50vw;
-    margin-top: -3vw;
+    margin-top: -1vw;
 }
 
 #reqDetail .row{
@@ -467,25 +656,30 @@ hr{
 }
 
 #regDetail{
-    width: 20vw;
+    width: 35vw;
     height: 3vw;
-    padding: 1vw 14vw;
+    padding: 2.7vw 7vw;
 }
 
 #regDetail p{
     text-align: center;
     margin-bottom: 0.5vw;
-    font-size: 1.5vw;
+    font-size: 2vw;
+    
 }
 
 .minimumGrade{
     padding: 0vw 0vw 0vw -0.3vw;
 }
 
-.openRegis{
-    font-size: 3vw;
+#regDetail .openRegis{
+    margin-top: -2vw;
+    font-size: 3.5vw;
+    color: aqua;
+    
 }
 
-.regisDate{
-    font-size: 1.3vw;
+#regDetail .regisDate{
+    font-size: 2vw;
+
 }

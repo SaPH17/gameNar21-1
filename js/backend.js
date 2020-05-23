@@ -42,7 +42,8 @@ function game(){
 
     var coinCollision = []
 
-    
+    var linearXCart = []
+    var linearYCart = (0.5*canvas.height) - 85
 
     var framesCoin = 0
     var framesObstacle = 0
@@ -59,6 +60,10 @@ function game(){
 
     var totalFramesCounter = 0
     var acc = 5
+
+
+    var cartSpeed = -200
+    var cartAcc = 6
 
 
     var gravity = 9
@@ -88,7 +93,11 @@ function game(){
         ctx.drawImage(spriteBack,paralaxX,0,2*canvas.width,canvas.height)
         
 
-        paralaxX-=0.5
+        var x3 = new Image()
+        x3.src = '../Assets/bgAssets/jembatanAsset.png'
+        ctx.drawImage(x3,paralaxX,0.5*canvas.height,2*canvas.width,0.5*canvas.height)
+
+        paralaxX-=5
         // paralaxX-=5
         paralaxX%=canvas.width
     }
@@ -103,6 +112,33 @@ function game(){
         x3.src = '../Assets/layeredBg/ly5.png'
         ctx.drawImage(x3,roadX,0,2*canvas.width,canvas.height)
     
+
+    }
+
+    function cart()
+    {
+    	cartSpeed += cartAcc
+
+		var x4 = new Image()
+		if(cartAcc < 0)
+		{
+			x4.src = '../Assets/bgAssets/cart1Asset.png'
+		}
+		else
+        	x4.src = '../Assets/bgAssets/cart2Asset.png'
+
+        ctx.drawImage(x4,cartSpeed,linearYCart,150,100)
+        ctx.drawImage(x4,cartSpeed+125,linearYCart,150,100)
+        if(cartSpeed >= canvas.width+350 && cartAcc > 0)
+        {
+        	cartAcc += 2
+            cartAcc *= -1
+        }    
+        else if(cartSpeed < -350 && cartAcc < 0)
+        {
+            cartAcc *= -1
+            cartAcc -= 2
+        }
 
     }
 
@@ -238,14 +274,17 @@ function game(){
     }            
     
 
-    function missileHit(){
-        if(isHit){
+    function missileHit()
+    {
+        if(isHit)
+        {
             ctx.save();
             var dx = Math.random()*10 + 3;
             var dy = Math.random()*10 + 3;
             ctx.translate(dx, dy);  
 
-            setInterval(() => {
+            setInterval(() =>
+            {
                 ctx.restore();
                 
             }, 200);
@@ -325,14 +364,25 @@ function game(){
         ctx.fillText("Points = " + total, 1170, 60)
     }
 
+    function jembatan()
+    {
+    
+    }
+
+
     function draw()
     {
         clear() // background paralax
 
         
+        jembatan()
+        cart()
         road2() // untuk atas bawah
         
         coin() // random coin
+
+        missileHit()
+
 
 
         movement() // playe☺r
@@ -456,7 +506,7 @@ function details()
     document.getElementById("regDetail").style.left = "1vw";
     document.getElementById("contactDetail").style.left = "1vw";
 
-    document.getElementById("benefitDetail").style.display = "block";
+    //document.getElementById("benefitDetail").style.display = "block";
     
 
     benefit.onclick = function(){
