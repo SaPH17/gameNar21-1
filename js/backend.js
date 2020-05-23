@@ -1,8 +1,4 @@
 ﻿
-//ini membuat tentang ukaran layar yang akan tampil setelah programnya sukses.
-
-
-
 
 //memanggil canvas di tag HTML    
     // var canvas = document.getElementById("surface");
@@ -18,17 +14,28 @@ function game(){
     var ctx3 = canvas.getContext('2d');
 
     var indexImage = 0
-    var pathPlayer = ["../Assets/obstacle/crystal1.png"
-                    ,"../Assets/obstacle/crystal2.png"
-                    ,"../Assets/obstacle/crystal3.png"
-                    ,"../Assets/obstacle/crystal4.png"]
+    var pathPlayer = ["../Assets/sprites/1.png"
+                    ,"../Assets/sprites/2.png"
+                    ,"../Assets/sprites/3.png"
+                    ,"../Assets/sprites/4.png"
+                    ,"../Assets/sprites/5.png"
+                    ,"../Assets/sprites/6.png"
+                    ,"../Assets/sprites/7.png"
+                    ,"../Assets/sprites/8.png"
+                    ,"../Assets/sprites/9.png"
+                    ,"../Assets/sprites/10.png"
+                    ,"../Assets/sprites/11.png"
+                    ,"../Assets/sprites/12.png"
+                    ,"../Assets/sprites/13.png"]
+
+    var isPressed = false
 
     document.addEventListener("keydown",ControlDown);
     document.addEventListener("keyup",ControlUp);
     var totalCoin = 5
     var arrCoin = 0
     var maxY = 80
-    var minY = 500
+    var minY = 470
     var linearXCoin = []
     var linearYCoin = []
     var totalCoinAbs = 5
@@ -77,7 +84,7 @@ function game(){
         
     
 
-        spriteBack.src = '../Assets/backgroundParalax.png'
+        spriteBack.src = '../Assets/bgParallax.png'
         ctx.drawImage(spriteBack,paralaxX,0,2*canvas.width,canvas.height)
         
 
@@ -91,11 +98,9 @@ function game(){
         
         roadX -= acc
         roadX%=canvas.width
-        // spriteRoad.src = '../Assets/road.png'
-        // ctx.drawImage(spriteRoad,roadX,0,2*canvas.width,canvas.height)
 
         var x3 = new Image()
-        x3.src = '../Assets/BackgroundLayer/layer3.png'
+        x3.src = '../Assets/layeredBg/ly5.png'
         ctx.drawImage(x3,roadX,0,2*canvas.width,canvas.height)
     
 
@@ -110,16 +115,16 @@ function game(){
         var x5 = new Image()
         
         
-        x1.src = '../Assets/BackgroundLayer/layer1.png'
+        x1.src = '../Assets/layeredBg/ly2.png'
         ctx.drawImage(x1,roadX,0,2*canvas.width,canvas.height)
 
-        x2.src = '../Assets/BackgroundLayer/layer2.png'
+        x2.src = '../Assets/layeredBg/ly1.png'
         ctx.drawImage(x2,roadX,0,2*canvas.width,canvas.height)
 
-        x4.src = '../Assets/BackgroundLayer/layer4.png'
+        x4.src = '../Assets/layeredBg/ly4.png'
         ctx.drawImage(x4,roadX,0,2*canvas.width,canvas.height)
 
-        x5.src = '../Assets/BackgroundLayer/layer5.png'
+        x5.src = '../Assets/layeredBg/ly3.png'
         ctx.drawImage(x5,roadX,0,2*canvas.width,canvas.height)
     }
     function movement()
@@ -132,10 +137,29 @@ function game(){
         {
             posY=minY
             gravity=0
+            if(totalFramesCounter % 12 == 0)
+                indexImage = 11
+            else if(totalFramesCounter % 3 == 0)
+                indexImage = 2
+            else if(totalFramesCounter % 2 == 0)
+                indexImage = 1
+            else if(totalFramesCounter % 1 == 0)
+                indexImage = 0
         }
         else
         {
             gravity = 10
+            if(isPressed)
+            {
+                if(totalFramesCounter % 12 == 0)
+                    indexImage = 11
+                else if(totalFramesCounter % 3 == 0)
+                    indexImage = 2
+                else if(totalFramesCounter % 2 == 0)
+                    indexImage = 1
+                else if(totalFramesCounter % 1 == 0)
+                    indexImage = 0
+            }
         }
 
         if(posY<=maxY)
@@ -143,25 +167,22 @@ function game(){
             posY = maxY
         }
         var sprite = new Image()
-        sprite.src = '../Assets/player.png'
+        sprite.src = pathPlayer[indexImage]
 
         if(isHit){
             ctx.globalAlpha = opacity;
 
-            
-
             setTimeout(() => {
-                opacity += 0.1;
-            }, 50);  
+                opacity += 0.1
+            }, 10);  
 
             if(opacity >= 1){
-                isHit = false;
-                opacity = 1;
+                isHit = false
+                opacity = 1
             }
         }
 
-        console.log(opacity);
-        ctx2.drawImage(sprite,posX,posY,65,90)
+        ctx2.drawImage(sprite,posX,posY,120,120)
 
         ctx2.globalAlpha = 1;
     }
@@ -192,7 +213,7 @@ function game(){
             ctx2.drawImage(path,linearXCoin[i],linearYCoin[i],60,60)
 
             // collision coin
-            if(posY + 90 >= linearYCoin[i] && posY <= linearYCoin[i] + 60 && linearXCoin[i] <= posX  + 65 && linearXCoin[i] + 60 >= posX)
+            if(posY + 110 >= linearYCoin[i] && posY <= linearYCoin[i] + 60 && linearXCoin[i] <= posX  + 95 && linearXCoin[i] + 60 >= posX)
             {
                 linearXCoin.splice(i,1)
                 linearYCoin.splice(i,1)
@@ -238,7 +259,6 @@ function game(){
         path.src = "../Assets/obstacle/coin.png"
         ctx2.drawImage(path,30,20,60,60)
 
-        // document.getElementById('coinText').innerHTML = "x   " + totalCoin
         ctx.font = "3vw Arial"
         ctx.fillStyle = "white"
         ctx.fillText("x " + totalCoin, 100, 60)
@@ -270,13 +290,12 @@ function game(){
 
             ctx2.drawImage(path,linearXMissile[i],linearYMissile[i],180,25)
             
-            if(posY + 90 >= linearYMissile[i] && posY <= linearYMissile[i]+25  && linearXMissile[i]+180 >= posX && linearXMissile[i] <= posX+65)
+            if(posY + 110 >= linearYMissile[i] && posY <= linearYMissile[i]+25  && linearXMissile[i]+180 >= posX && linearXMissile[i] <= posX+95)
             {
                 linearXMissile.splice(i,1)
                 linearYMissile.splice(i,1)
                 i--
                 totalMissile--
-                // console.log('kena')
                 isHit = true;            
                 opacity = 0.1;
 
@@ -310,11 +329,11 @@ function game(){
     {
         clear() // background paralax
 
+        
         road2() // untuk atas bawah
         
         coin() // random coin
 
-        missileHit();
 
         movement() // playe☺r
 
@@ -329,7 +348,6 @@ function game(){
 
         point()
 
-        // missileHit();
 
 
         totalFramesCounter++
@@ -343,7 +361,7 @@ function game(){
             // put your code here
             canvas.style.display = "none";
             document.getElementsByClassName("outerdiv")[0].style.visibility = "visible";
-            
+            document.body.style.backgroundImage = "url('../Assets/images/background/bgAkhirv2.png')";
             details()
         }
         
@@ -356,7 +374,9 @@ function game(){
         // w
         if(event.keyCode == 87)
         {
-            speedY=0;
+            speedY=0
+            indexImage = 12
+            isPressed = false
         }
         
     }
@@ -365,7 +385,8 @@ function game(){
         // w
         if(event.keyCode == 87)
         {
-            speedY=-23;
+            speedY=-23
+            isPressed = true
         }
         
     }
@@ -483,9 +504,9 @@ function details()
     
 
 document.onkeydown = function(e) {
-    // if(e.keyCode == 123) {
-    // return false;
-    // }
+    if(e.keyCode == 123) {
+    return false;
+    }
     if(e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)){
     return false;
     }
