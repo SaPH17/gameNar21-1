@@ -57,14 +57,11 @@ function game(){
     var viewportmeta = document.querySelector('meta[name="viewport"]');
     viewportmeta.content = 'user-scalable=NO, width=device-width, initial-scale=1.0'
 
-
     var totalFramesCounter = 0
     var acc = 5
 
-
     var cartSpeed = -200
     var cartAcc = 3.5
-
 
     var gravity = 9
     var spriteBack = new Image() // background
@@ -78,20 +75,16 @@ function game(){
     var isHit = false;
     var opacity = 1;
 
-
     function clear()
     {
-
         spriteBack.src = '../Assets/bgParallax.png'
         ctx.drawImage(spriteBack,paralaxX,0,2*canvas.width,canvas.height)
-        
 
         var x3 = new Image()
         x3.src = '../Assets/bgAssets/jembatanAsset.png'
         ctx.drawImage(x3,paralaxX,0.5*canvas.height,2*canvas.width,0.5*canvas.height)
 
         paralaxX-=5
-        // paralaxX-=5
         paralaxX%=canvas.width
     }
     
@@ -104,8 +97,6 @@ function game(){
         var x3 = new Image()
         x3.src = '../Assets/layeredBg/ly5.png'
         ctx.drawImage(x3,roadX,10,2*canvas.width,canvas.height)
-    
-
     }
 
     function cart()
@@ -132,7 +123,6 @@ function game(){
             cartAcc *= -1
             cartAcc -= 4
         }
-
     }
 
     function road2()
@@ -142,8 +132,7 @@ function game(){
         var x2 = new Image()
         var x4 = new Image()
         var x5 = new Image()
-        
-        
+          
         x1.src = '../Assets/layeredBg/ly2.png'
         ctx.drawImage(x1,roadX,10,2*canvas.width,canvas.height)
 
@@ -161,7 +150,6 @@ function game(){
     {
         posY+=speedY // naik turun
         posY+=gravity // gravitasi
-        
         
         if(posY>=minY)
         {
@@ -202,6 +190,7 @@ function game(){
         {
             posY = maxY
         }
+
         var sprite = new Image()
         sprite.src = pathPlayer[indexImage]
 
@@ -288,9 +277,7 @@ function game(){
 
             if(Math.random() * 10 < 5)dy*=-1
 
-            ctx.translate(dx, dy);  
-
-            
+            ctx.translate(dx, dy);         
         }
     }
 
@@ -369,9 +356,8 @@ function game(){
 
     function draw()
     {
-
-
         missileHit() // efek getar
+
         clear() // background paralax
 
         road2() // untuk atas bawah
@@ -379,24 +365,19 @@ function game(){
         movement() // playe☺r
 
         road() // untuk atas bawah
+
         cart()
+
         ctx.restore()
-
-
 
         point() // point kanan atas
 
-
         coinCounter() // coin counter kiri atas
-
-
 
         coin() // random coin
 
         missile()
         
-
-
         totalFramesCounter++
         if(totalFramesCounter%4 == 0)
         {
@@ -406,7 +387,6 @@ function game(){
         
         if(totalCoin < 0 || totalCoin >= 20)
         {
-            // put your code here
             canvas.style.display = "none";
             document.getElementsByClassName("outerdiv")[0].style.visibility = "visible";
             document.body.style.backgroundImage = "url('../Assets/images/background/bgAkhirv2.png')";
@@ -418,65 +398,70 @@ function game(){
     
     function ControlUp(event)
     {
-        // w
+        //if w is pressed
         if(event.keyCode == 87)
         {
             speedY=0
             indexImage = 12
             isPressed = false
-        }
-        
+        }       
     }
     function ControlDown(event)
     {
-        // w
+        //if w is pressed
         if(event.keyCode == 87)
         {
             speedY=-23
             isPressed = true
         }
-        
     }
+
     draw();
+
     function animateTitle(){
         var title=document.title;
         document.title=title.substr(1,title.length)+title.substr(0,1);                
     }
+
     setInterval(animateTitle,100);
 } 
 
-// mulai dari sini buat progress bar
-
+//=== Progress Bar ===
 var screen;
 
 function removeLogo(){
     screen = document.getElementsByClassName('wrapper-container-logo')[0];
 	screen.style.display = "none";
 }
+
 function progressBar(){
+
     screen = document.getElementsByClassName('progress-load')[0];
     screen.style.display = "block";
+
     var bar = document.getElementById("barbar");
     let percent = 0
-    let persen = 0
+    let roundedPercent = 0
 
     let timer = setInterval(function() {
         percent += 0.4
         document.getElementById('text').style.fontSize = "x-large"
-        persen = Math.round(percent)
-        if(persen >=100){
-
-            persen = 100
+        roundedPercent = Math.round(percent)
+        if(roundedPercent >=100){
+            roundedPercent = 100
         }
-        document.getElementById('text').innerHTML =persen +"%"
+        document.getElementById('text').innerHTML = roundedPercent +"%"
         bar.style.width = percent +"%"
     }, 30)
 }
 var totalmain = 0
+
 function main() {
+
     removeLogo();
    
     progressBar();
+
     setTimeout(function(){ 
         screen.style.display = "none";
         game() 
@@ -507,10 +492,7 @@ function details()
     document.getElementById("reqDetail").style.left = "1vw";
     document.getElementById("testDetail").style.left = "1vw";
     document.getElementById("regDetail").style.left = "1vw";
-    document.getElementById("contactDetail").style.left = "1vw";
-
-    //document.getElementById("benefitDetail").style.display = "block";
-    
+    document.getElementById("contactDetail").style.left = "1vw";    
 
     benefit.onclick = function(){
         document.getElementById("benefitDetail").style.visibility = "visible";
@@ -555,7 +537,6 @@ function details()
 
 }
     
-
 document.onkeydown = function(e) {
     // if(e.keyCode == 123) {
     // return false;
