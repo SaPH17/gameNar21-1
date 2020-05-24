@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>New&nbspAssistant&nbspRecruitment&nbsp21-1  &nbsp</title>
+    <title>Assistant&nbspRecruitment&nbsp21-1  &nbsp</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../jquery/jquery-3.3.1.min.js"></script>
 </head>
@@ -22,19 +22,31 @@
         </div>
     </div>
     
-    <div class="progress-load" style="display: none;">
+    <div class="progress-load" style="display: none;margin-top: -4vw">
+
+        <div style="width: 50vw;margin-left: -15vw">
+            <p style="text-align : center;color:navy;font-size : 5vw"><b>HOW TO PLAY: </b></p><br>
+            <p style="text-align : center;color:navy;font-size : 2vw">Hold W to Fly</p>
+            <p style="text-align : center;color:navy;font-size : 2vw">Stay away from crystal shred</p>
+            <p style="text-align : center;color:navy;font-size : 2vw">Hitting a crystal will reduce your coin</p>
+            <p style="text-align : center;color:navy;font-size : 2vw">Claim 20 coins to win the game!</p>
+            <p style="text-align : center;color:navy;font-size : 2vw">Die when coins below 0</p>
+
+            <br>
+            <br>
+        </div>
+
+
         <div class="progress-text">
             <p class="a" id="text" > A </p>
         </div>
+        <br>
         <div class="progress-bar">
             <div class="bar" id="barbar">
             </div>
         </div>
-        <p class="how-to-play-text">How to Play : <br>
-           Press W to fly! <br> 
-           Claim 20 coins to win the game! <br>
-           Die when coins reach 0
-        </p>
+
+        
 
     </div>
     
@@ -115,32 +127,32 @@
                 <p class="softSkill">Soft Skills</p>
                 <hr>
                 <div class="skImages">
-                    <div class="column">
+                    <div class="columnSS">
                         <img src="../Assets/publicspeaking.png" alt="">
                         <div class="publicSpeaking-overlay">
                             <div class="overlay-text">Public<br>Speaking</div>
                         </div>
                     </div>
-                    <div class="column">
+                    <div class="columnSS">
                         <img src="../Assets/social.png" alt="">
                         <div class="social-overlay">
                             <div class="overlay-text">Social<br>Networking</div>
                         </div>
                     </div>
-                    <div class="column">
+                    <div class="columnSS">
                         <img src="../Assets/teamwork.png" alt="">
                         <div class="teamwork-overlay">
                             <div class="overlay-text">Teamwork</div>
                         </div>
                     </div>
-                    <div class="column">
+                    <div class="columnSS">
                         <img src="../Assets/timemgmt.png" alt="">
                         <div class="timemgmt-overlay">
                             <div class="overlay-text">Time<br>Management</div>
                         </div>
                     </div>
                 </div>
-                <p class="jobXp">Job Experience</p>
+                <p class="jobXp">Job Experiences</p>
             </div>
             <div id="reqDetail">
                 <div class="row">
@@ -170,24 +182,51 @@
             <div id="testDetail">
                 <div class="date">
                     <span>Sunday,</span>
-                    <span class="dateMonth">8 March</span>
+                    <span class="dateMonth"><b>8 March</b></span>
                     <span>2020</span>
                 </div>
                 <p class="time">07:30 - 12:00</p>
-                <div class="outfit">
-                    <div class="dress">Dress Politely</div>
-                    <div class="politely"></div>
-                    <div class="bring">and</div>
-                    <div class="binusianCard">bring Binusian Card</div>
+                <div class="outfit" style="margin-top: 2vw">
+                    <div class="dress">Dress Politely and Bring Binusian Card</div>
+                    <div class="bring"></div>
+                    <div class="binusianCard"></div>
+                    <div class="initialTest">The initial test consist of :</div>
+                    <div class="aptitude">
+                        <ul>
+                            <li>
+                                <span class="apt"><b>Aptitude</b></span>
+                                <span>Test</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="programming">
+                        <ul>
+                            <li>
+                                <span class="pro"><b>Programming</b></span>
+                                <span> Test ( using</span>
+                                <span class="pro"><b>C/C++/Java </b></span> 
+                                <span>)</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div id="regDetail">
                 <p class="openRegis">Open Registration</p>
-                <p class="regisDate">Monday, 23 October 2020</p>
-                <p style="font-weight: 200;">until</p>
-                <p class="regisDate">Saturday, 5 November 2020</p>
-                <p style="font-weight: 200;">at</p>
-                <p>bluejack.binus.ac.id/lab/</p>
+                <div class="regisDate">
+                    <span>Monday,</span>
+                    <span class="month">23 October</span>
+                    <span>2020</span>
+               </div>
+                <p>until</p>
+                <div class="regisDate">
+                    <span>Saturday,</span>
+                    <span class="month">5 November</span>
+                    <span>2020</span>
+                    <p>at</p>
+                    <a href="">bluejack.binus.ac.id/lab/</a>
+                </div>
             </div>
             <div id="contactDetail">
                 <div style="display: none;" id="contactDetail1">
@@ -196,6 +235,14 @@
                     <p class="kmg">- Kemanggisan -</p>
                     <p class="recsel">Christina / Hanni / Natasia</p>
                     <p class="phone">021-5345830 ext 1762 - Room 724</p>
+                    <div class="socmed">
+                        <img class="fb" src="../Assets/sosmed/facebook.png" alt="facebook">
+                        <p class="fb-text">SoftwareLabCenter</p>
+                        <img class="ig" src="../Assets/sosmed/instagram.png" alt="facebook">
+                        <p class="ig-text">slcbinusuniv</p>
+                        <img class="yt" src="../Assets/sosmed/youtube.png" alt="facebook">
+                        <p class="yt-text">Software Lab Center</p>
+                    </div>
                 </div>
             </div>
         </div>

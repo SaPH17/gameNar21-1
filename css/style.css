@@ -1,7 +1,11 @@
 *{
     margin:0;padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: auto;
+    cursor:url('../Assets/cursor.png') 20 50,pointer;
 }
+
+
 
 body{
     background-image: url('../Assets/images/background/bgAwal.png');
@@ -72,8 +76,6 @@ body{
     transition-duration: 2s;
     -webkit-filter: drop-shadow(0vw 0vw 1.5vw #7300ff);
     filter: drop-shadow(0vw 0vw 1.5vw #7300ff);
-    cursor: auto;
-    cursor:url('../Assets/cursor.png') 20 50,pointer;
 }
 
 @keyframes pulse{
@@ -161,6 +163,7 @@ canvas{
 
 .progress-load {
     position: absolute;
+    top: 15vw;
 }
 
 .progress-text {
@@ -173,20 +176,26 @@ canvas{
 }
 
 .progress-bar {
-    width: 20vw;
-    height: 1.5vw;
+    width: 50vw;
+    height: 2.2vw;
+    left: -15vw;
     background-color: #fff;
+
     border-radius:0.5vw;
     position: relative;
     overflow: hidden;
+    border: 1px solid white;
 }
 .progress-bar .bar {
+    box-shadow: 0 0 8px 1px white inset;
+    box-shadow: -2px 0 8px 0 rgba(white, 0.6);
+    background: linear-gradient(to bottom, darkblue 35%, darkblue);
     width: 0vw;
     position: absolute;
     top: 0vw;
     left: 0vw;
     height: 10vw;
-    background-color: darkblue;
+    /*background-color: darkblue;*/
 }
 
 /* ini bagian gameover */
@@ -362,6 +371,12 @@ p{
     height: 6vw;
 }
 
+.columnSS{
+    margin: 0.5vw;
+    width: 8.6vw;
+    height: 6vw;
+}
+
 /* Bagian gambar jadi tulisan */
 /*Overlay hardskill */
 .cpp-overlay {
@@ -392,6 +407,7 @@ p{
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    font-family: serif;
 }
 
 .java-overlay {
@@ -419,7 +435,7 @@ p{
     left: 19.8vw;
     right: 0;
     height: 50%;
-    width: 50%;
+    width: 55%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
@@ -437,7 +453,7 @@ p{
     left: 29.2vw;
     right: 0;
     height: 50%;
-    width: 50%;
+    width: 55%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
@@ -455,7 +471,7 @@ p{
     left: 37.2vw;
     right: 0;
     height: 50%;
-    width: 60%;
+    width: 65%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
@@ -470,73 +486,73 @@ p{
   
 .publicSpeaking-overlay {
     position: absolute;
-    top: 12.4vw;
+    top: 13.4vw;
     bottom: 0;
-    left: 16.2vw;
+    left: 11.4vw;
     right: 0;
     height: 12%;
-    width: 13%;
+    width: 15%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
     border-radius: 0.5vw;
 }
 
-.column:hover .publicSpeaking-overlay {
+.columnSS:hover .publicSpeaking-overlay {
     opacity: 1;
 }
 
 .social-overlay {
     position: absolute;
-    top: 12.4vw;
+    top: 13.4vw;
     bottom: 0;
-    left: 23.7vw;
+    left: 19.1vw;
     right: 0;
     height: 12%;
-    width: 17%;
+    width: 19%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
     border-radius: 0.5vw;
 }
 
-.column:hover .social-overlay {
+.columnSS:hover .social-overlay {
     opacity: 1;
 }
 
 .teamwork-overlay {
     position: absolute;
-    top: 12.4vw;
+    top: 13.4vw;
     bottom: 0;
-    left: 31.4vw;
+    left: 29vw;
     right: 0;
     height: 12%;
-    width: 17%;
+    width: 18%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
     border-radius: 0.5vw;
 }
 
-.column:hover .teamwork-overlay {
+.columnSS:hover .teamwork-overlay {
     opacity: 1;
 }
 
 .timemgmt-overlay {
     position: absolute;
-    top: 12.4vw;
+    top: 13.4vw;
     bottom: 0;
-    left: 39.2vw;
+    left: 38.2vw;
     right: 0;
     height: 12%;
-    width: 18.8%;
+    width: 20.8%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
     border-radius: 0.5vw;
 }
 
-.column:hover .timemgmt-overlay {
+.columnSS:hover .timemgmt-overlay {
     opacity: 1;
 }
 
@@ -544,7 +560,8 @@ p{
 
 
 #benefitDetail .softSkill{
-    font-size: 2vw;
+    font-family: 'Lucida Sans Unicode';
+    font-size: 2.3vw;
     margin-top: -1vw;
     text-align: right;
     margin-top: 7vw;
@@ -553,7 +570,9 @@ p{
     text-shadow: 0.2vw 0.2vw rgba(0, 255, 255, 0.473);
 }
 #benefitDetail .jobXp{
-    font-size: 2vw;
+    font-family: 'Lucida Sans Unicode';
+    margin-top: -1.2vw;
+    font-size: 2.3vw;
     color: aqua;
     text-shadow: 0.2vw 0.2vw rgba(0, 255, 255, 0.473);
 }
@@ -656,16 +675,20 @@ hr{
 }
 
 #regDetail{
-    width: 35vw;
-    height: 3vw;
-    padding: 2.7vw 7vw;
+    width: 100%;
+    height: 100%;
+    margin-top: -3vw;
+    margin-left: 0vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5vw;
 }
 
 #regDetail p{
-    text-align: center;
     margin-bottom: 0.5vw;
-    font-size: 2vw;
-    
+    text-align: center;
 }
 
 .minimumGrade{
@@ -674,12 +697,126 @@ hr{
 
 #regDetail .openRegis{
     margin-top: -2vw;
-    font-size: 3.5vw;
+    font-size: 2.5vw;
+    color: white
+}
+
+.regisDate a{
+    text-decoration: none;
+    display: block;
     color: aqua;
-    
+    margin-left: 4.5vw;
+    font-size: 1.5vw;
 }
 
-#regDetail .regisDate{
-    font-size: 2vw;
-
+.regisDate a:hover{
+    font-weight: bold;
 }
+
+.month{
+    font-size: 3vw;
+    color: aqua;
+}
+
+
+
+.initialTest{
+    text-align: left;
+    /* margin-left: 2vw; */
+    margin-top: 0.2vw;
+    font-size: 1.5vw;
+}
+.aptitude, .programming{
+    text-align: left;
+    margin-top: 0.2vw;
+    margin-left: 2vw;
+    font-size: 1.5vw;
+}
+
+.programming{
+    margin-bottom: 0.5vw;
+}
+
+.apt, .pro{
+    color: aqua;
+}
+
+
+#testDetail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-top: -1.5vw;
+    margin-left: 0vw;
+}
+
+
+#contactDetail .socmed{
+    position: absolute;
+    height: 3vw;
+    left: -3vw;
+}
+
+#contactDetail .socmed .fb{
+    position: absolute;
+    margin-top: 0.5vw;
+    left: -2vw;
+    width: 2vw;
+    height: 2vw;
+}
+
+#contactDetail .socmed .fb-text{
+    font-family: 'Times New Roman';
+    font-weight: 100;
+    color: white;
+    top: 1vw;
+    left: 0.2vw;
+    font-size: 1vw;
+}
+
+#contactDetail .socmed .ig{
+    position: absolute;
+    margin-top: -0.3vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    left: 12vw;
+}
+
+#contactDetail .socmed .ig-text{
+    font-family: 'Times New Roman';
+    font-weight: 100;
+    color: white;
+    top: -0.1vw;
+    left: 14vw;
+    font-size: 1vw;
+}
+
+#contactDetail .socmed .yt{
+    position: absolute;
+    margin-top: -1.3vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    left: 22.5vw;
+}
+
+#contactDetail .socmed .yt-text{
+    font-family: 'Times New Roman';
+    font-weight: 100;
+    color: white;
+    top: -1.2vw;
+    left: 24.5vw;
+    font-size: 1vw;
+}
+
+
+
+
+
+
+
+
+
+
